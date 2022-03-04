@@ -7,6 +7,11 @@ app.config["REDIS_URL"] = "redis://localhost:6379/1"
 app.register_blueprint(sse, url_prefix='/stream')
 
 
+@app.route('/')
+def home():
+    return render_template('home.html')
+
+
 @app.route('/chat')
 def index():
     return render_template("index.html")
