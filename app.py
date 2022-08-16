@@ -20,7 +20,10 @@ def index():
 @app.route('/score/<channel>', methods=['GET', 'POST'])
 def publish_hello(channel):
     if request.method == 'POST':
-        print(request.json)
         sse.publish(request.json,
                     type='score_update', channel=channel)
         return "Message sent!"
+
+
+if __name__ == '__main__':
+    app.run()
